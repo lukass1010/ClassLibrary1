@@ -45,8 +45,8 @@ namespace WpfApplication1
             if (response.IsSuccessStatusCode)
             {
                
-               // var result = JsonConvert.DeserializeObject<RootObject>(response.ToString());
-                listBox.ItemsSource = selectedTeam.matches;
+                var result = JsonConvert.DeserializeObject<RootObject>(response.Content.ReadAsStringAsync().Result);
+                //listBox.ItemsSource = selectedTeam.matches;
 
             }
             else
