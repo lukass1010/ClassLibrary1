@@ -1,0 +1,30 @@
+﻿<Page x:Class="WpfApplication1.Matches"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApplication1"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="470.149"
+      Title="Matches">
+
+    <Grid>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="219" Margin="31,30,0,0" VerticalAlignment="Top" Width="226" Background="Gray" SelectionChanged="listBox_SelectionChanged">
+
+        </ListBox>
+        <Label x:Name="label" Content="Match Date:" HorizontalAlignment="Left" Margin="31,4,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="buttonSeeGoals" Content="See Goals" HorizontalAlignment="Left" Margin="262,229,0,0" VerticalAlignment="Top" Width="99" Click="buttonSeeGoals_Click" />
+        <Button x:Name="buttonAddMatch" Content="Add Match" HorizontalAlignment="Left" Margin="262,204,0,0" VerticalAlignment="Top" Width="99" Click="buttonAddMatch_Click"/>
+        <Button x:Name="button" Content="Remove" HorizontalAlignment="Left" Margin="366,229,0,0" VerticalAlignment="Top" Width="94"/>
+        <Button x:Name="button1" Content="Edit Match" HorizontalAlignment="Left" Margin="366,204,0,0" VerticalAlignment="Top" Width="94" Click="button1_Click"/>
+        <TextBlock x:Name="textTime" HorizontalAlignment="Left" Margin="356,36,0,0" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" Width="56" Height="26"/>
+        <Label x:Name="label1" Content="Time:" HorizontalAlignment="Left" Margin="299,30,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy" Content="City:" HorizontalAlignment="Left" Margin="299,69,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textCity" HorizontalAlignment="Left" Margin="356,74,0,0" TextWrapping="Wrap" Text="City" VerticalAlignment="Top" Width="56" Height="26"/>
+        <Label x:Name="label1_Copy1" Content="Home:" HorizontalAlignment="Left" Margin="299,111,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy2" Content="Away:" HorizontalAlignment="Left" Margin="299,146,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textHome" HorizontalAlignment="Left" Margin="356,116,0,0" TextWrapping="Wrap" Text="Host" VerticalAlignment="Top" Width="56" Height="26"/>
+        <TextBlock x:Name="textAway" HorizontalAlignment="Left" Margin="356,150,0,0" TextWrapping="Wrap" Text="Guest" VerticalAlignment="Top" Width="56" Height="26"/>
+
+    </Grid>
+</Page>
