@@ -38,7 +38,8 @@ namespace WpfApplication1
             else
             {
                 MessageBox.Show("Couldn't load this match");
-                this.NavigationService.Navigate(new MainPage());
+                //this.NavigationService.Navigate(new MainPage());
+                return;
 
             }
         }

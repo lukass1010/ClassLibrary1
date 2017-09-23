@@ -44,19 +44,23 @@ namespace WpfApplication1
             else
                 MessageBox.Show("Error - couldn't load any goals");
 
-
-
-
         }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new EditGoal(currentGoal));
-        }
+        
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             this.currentGoal = (ClassLibrary1.Goal)listBox.SelectedItem;
+        }
+
+        private void buttonAddg(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AddGoal(currentMatch));
+
+        }
+
+        private void buttonEditg(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

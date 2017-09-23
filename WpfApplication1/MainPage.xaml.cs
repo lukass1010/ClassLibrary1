@@ -22,22 +22,13 @@ namespace WpfApplication1
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new System.Uri(@"http://localhost:8080/");
-
-            //  var content = new StringContent(Newtonsoft.Json.JsonConvert.DeserializeObject(selectedTeam), Encoding.UTF8, "application/json");
-
-
-
-      
             HttpResponseMessage response = client.GetAsync($"Liga/teams/").Result;
 
             if (response.IsSuccessStatusCode)
             {
-                var result = response.Content;//.ReadAsStringAsync();
-               
-              // var eteams = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ClassLibrary1.Team>>(result);
-                // teams= Newtonsoft.Json.JsonConvert.DeserializeObject<List<ClassLibrary1.Team>>(response.Content.ReadAsStringAsync().Result);
-                //  json = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ClassLibrary1.Team>>(response.ToString());
-                listBox.ItemsSource = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ClassLibrary1.Team>>(response.Content.ReadAsStringAsync().Result);
+                var result = response.Content;//.ReadAsStringAsync();  
+                     
+               listBox.ItemsSource = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ClassLibrary1.Team>>(response.Content.ReadAsStringAsync().Result);
 
             }
             else
