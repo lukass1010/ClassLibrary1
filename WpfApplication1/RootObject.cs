@@ -26,6 +26,10 @@ namespace ClassLibrary1
         public bool leapYear { get; set; }
         public int monthValue { get; set; }
         public Chronology chronology { get; set; }
+        public override string ToString()
+        {
+            return year.ToString() + "-" + monthValue.ToString() + "-" + dayOfMonth.ToString() ;
+        }
     }
 
     public class Time
@@ -34,6 +38,10 @@ namespace ClassLibrary1
         public int minute { get; set; }
         public int second { get; set; }
         public int nano { get; set; }
+        public override string ToString()
+        {
+            return hour.ToString() + ":" + minute.ToString() ;
+        }
     }
 
     public class Footballer1
@@ -54,6 +62,10 @@ namespace ClassLibrary1
         public string league { get; set; }
         public List<Footballer1> footballers { get; set; }
         public List<object> matches { get; set; }
+        public override string ToString()
+        {
+            return name.ToString();
+        }
     }
 
     public class Footballer2
@@ -74,6 +86,10 @@ namespace ClassLibrary1
         public string league { get; set; }
         public List<Footballer2> footballers { get; set; }
         public List<object> matches { get; set; }
+        public override string ToString()
+        {
+            return name.ToString(); 
+        }
     }
 
     public class Match2
@@ -92,6 +108,7 @@ namespace ClassLibrary1
         public HostTeam hostTeam { get; set; }
         [JsonProperty("guestTeam")]
         public GuestTeam guestTeam { get; set; }
+       
     }
 
     public class RootObject

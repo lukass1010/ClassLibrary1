@@ -21,14 +21,14 @@ namespace WpfApplication1
     /// </summary>
     public partial class Goals : Page
     {
-        ClassLibrary1.Match currentMatch;
+        ClassLibrary1.Match2 currentMatch;
         ClassLibrary1.Goal currentGoal;
         public Goals()
         {
             InitializeComponent();
         }
 
-        public Goals(ClassLibrary1.Match currentMatch)
+        public Goals(ClassLibrary1.Match2 currentMatch)
         {
             InitializeComponent();
             this.currentMatch = currentMatch;

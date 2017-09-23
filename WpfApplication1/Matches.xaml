@@ -22,9 +22,9 @@
         <Label x:Name="label1_Copy" Content="City:" HorizontalAlignment="Left" Margin="299,69,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="textCity" HorizontalAlignment="Left" Margin="356,74,0,0" TextWrapping="Wrap" Text="City" VerticalAlignment="Top" Width="56" Height="26"/>
         <Label x:Name="label1_Copy1" Content="Home:" HorizontalAlignment="Left" Margin="299,111,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy2" Content="Away:" HorizontalAlignment="Left" Margin="299,146,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textHome" HorizontalAlignment="Left" Margin="356,116,0,0" TextWrapping="Wrap" Text="Host" VerticalAlignment="Top" Width="56" Height="26"/>
-        <TextBlock x:Name="textAway" HorizontalAlignment="Left" Margin="356,150,0,0" TextWrapping="Wrap" Text="Guest" VerticalAlignment="Top" Width="56" Height="26"/>
+        <Label x:Name="label1_Copy2" Content="Away:" HorizontalAlignment="Left" Margin="301,146,0,0" VerticalAlignment="Top" Height="44" Width="43"/>
+        <TextBlock x:Name="textHome" HorizontalAlignment="Left" Margin="356,116,0,0" TextWrapping="Wrap" Text="Host" VerticalAlignment="Top" Width="104" Height="26"/>
+        <TextBlock x:Name="textAway" HorizontalAlignment="Left" Margin="356,150,0,0" TextWrapping="Wrap" Text="Guest" VerticalAlignment="Top" Width="100" Height="40"/>
 
     </Grid>
 </Page>

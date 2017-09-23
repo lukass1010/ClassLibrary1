@@ -13,13 +13,13 @@
         <Button x:Name="button" Content="Save Match" HorizontalAlignment="Left" Margin="361,117,0,0" VerticalAlignment="Top" Width="136" Height="64" Click="button_Click"/>
         <TextBox x:Name="textBoxTime" HorizontalAlignment="Left" Height="23" Margin="165,85,0,0" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" Width="120" />
         <TextBox x:Name="textBoxCity" HorizontalAlignment="Left" Height="23" Margin="165,140,0,0" TextWrapping="Wrap" Text="City" VerticalAlignment="Top" Width="120" />
-        <TextBox x:Name="textBoxHost" HorizontalAlignment="Left" Height="23" Margin="165,193,0,0" TextWrapping="Wrap" Text="Host" VerticalAlignment="Top" Width="120" />
-        <TextBox x:Name="textBoxGuest" HorizontalAlignment="Left" Height="23" Margin="165,246,0,0" TextWrapping="Wrap" Text="Guest" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label" Content="Date:" HorizontalAlignment="Left" Margin="72,33,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy" Content="Time:" HorizontalAlignment="Left" Margin="72,85,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy1" Content="City:" HorizontalAlignment="Left" Margin="73,140,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy2" Content="Home:" HorizontalAlignment="Left" Margin="73,193,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy3" Content="Away:" HorizontalAlignment="Left" Margin="77,246,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="165,197,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="165,250,0,0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Page>

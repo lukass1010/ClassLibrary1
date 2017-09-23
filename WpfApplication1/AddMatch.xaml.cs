@@ -67,7 +67,7 @@ namespace WpfApplication1
                 newMatch.city = textBoxCity.Text;
                 
                 newMatch.hostTeam =(ClassLibrary1.Team) comboBox.SelectedItem;
-                newMatch.guestTeam = (ClassLibrary1.Team)comboBox1.SelectedItem; ;
+                newMatch.guestTeam = (ClassLibrary1.Team)comboBox1.SelectedItem; 
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(@"http://localhost:8080/");

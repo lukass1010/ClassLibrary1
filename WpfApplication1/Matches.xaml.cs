@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,10 +28,11 @@ namespace WpfApplication1
     {
        
         public ClassLibrary1.Team selectedTeam;
-        ClassLibrary1.Match currentMatch;
-
+        public ClassLibrary1.Match2 currentMatch;
+        
         public Matches()
         {
+            
             InitializeComponent();
         }
         public Matches(ClassLibrary1.Team selectedTeam)
@@ -40,14 +42,19 @@ namespace WpfApplication1
 
              HttpClient client = new HttpClient();
              client.BaseAddress = new System.Uri(@"http://localhost:8080/");
-             HttpResponseMessage response = client.GetAsync($"Liga/matches/").Result;        
-           
+             HttpResponseMessage response = client.GetAsync($"Liga/matches/").Result;
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
             if (response.IsSuccessStatusCode)
             {
-               
-                var result = JsonConvert.DeserializeObject<RootObject>(response.Content.ReadAsStringAsync().Result);
-                //listBox.ItemsSource = selectedTeam.matches;
 
+                RootObject result = JsonConvert.DeserializeObject<RootObject>(response.Content.ReadAsStringAsync().Result);
+                if (result != null)
+                {
+                    listBox.ItemsSource = result.matches.FindAll(i => ((i.hostTeam.name == selectedTeam.name) || (i.guestTeam.name == selectedTeam.name)));
+                    listBox.DisplayMemberPath = "date";
+
+                }
             }
             else
                 MessageBox.Show("Error - couldn't load any Teams");
@@ -75,11 +82,11 @@ namespace WpfApplication1
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.currentMatch = (ClassLibrary1.Match)listBox.SelectedItem;
+            this.currentMatch = (ClassLibrary1.Match2)listBox.SelectedItem;
             if (currentMatch != null)
             {
                 textTime.Text = currentMatch.time.ToString();
-                textCity.Text = currentMatch.hostTeam.city.ToString();
+                textCity.Text = currentMatch.city.ToString();
                 textHome.Text = currentMatch.hostTeam.name.ToString();
                 textAway.Text = currentMatch.guestTeam.name.ToString();
             }
