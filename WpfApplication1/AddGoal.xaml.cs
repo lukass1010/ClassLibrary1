@@ -30,55 +30,65 @@ namespace WpfApplication1
             InitializeComponent();
         }
 
-        public AddGoal(ClassLibrary1.Match2 selectedMatch)
+        public AddGoal(ClassLibrary1.Match2 selectedMatch, ClassLibrary1.Team selectedTeam)
         {
             InitializeComponent();
             this.currentMatch = selectedMatch;
+            this.selectedTeam = selectedTeam;
 
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new System.Uri(@"http://localhost:8080/");
-            //load teams
-            HttpResponseMessage response = client.GetAsync($"Liga/teams/").Result;
-            if (response.IsSuccessStatusCode)
-            {
-                comboBox.ItemsSource = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ClassLibrary1.Team>>(response.Content.ReadAsStringAsync().Result);
+            //HttpClient client = new HttpClient();
+            //client.BaseAddress = new System.Uri(@"http://localhost:8080/");
 
-            }
-            else
-                MessageBox.Show("Error - couldn't load any Teams");
-            //load footballers
-       
+            textBoxName.Text = selectedTeam.name.ToString();
+            comboBox1.ItemsSource = selectedTeam.footballers;
+            /* //load teams
+             HttpResponseMessage response = client.GetAsync($"Liga/teams/").Result;
+             if (response.IsSuccessStatusCode)
+             {
+                 comboBox.ItemsSource = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ClassLibrary1.Team>>(response.Content.ReadAsStringAsync().Result);
+
+             }
+             else
+                 MessageBox.Show("Error - couldn't load any Teams");
+             //load footballers
+        */
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            newGoal.time = textBoxTime.Text;
-            // current match
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new System.Uri(@"http://localhost:8080/");
-            string getPoint = "Liga/matches/" + currentMatch.id.ToString();
-            HttpResponseMessage response = client.GetAsync(getPoint).Result;
+            /* // current match
+             HttpClient client = new HttpClient();
+             client.BaseAddress = new System.Uri(@"http://localhost:8080/");
+             string getPoint = "Liga/matches/" + currentMatch.id.ToString();
+             HttpResponseMessage response = client.GetAsync(getPoint).Result;
 
-            if (response.IsSuccessStatusCode)
-            {
+             if (response.IsSuccessStatusCode)
+             {
 
-                ClassLibrary1.Match2 result = Newtonsoft.Json.JsonConvert.DeserializeObject<ClassLibrary1.Match2>(response.Content.ReadAsStringAsync().Result);
-                if (result != null)
-                {
-                //    newGoal.match = new ClassLibrary1.Match();
-                //    newGoal.match.id = result.id;
+                 ClassLibrary1.Match2 result = Newtonsoft.Json.JsonConvert.DeserializeObject<ClassLibrary1.Match2>(response.Content.ReadAsStringAsync().Result);
+                 if (result != null)
+                 {
+                 //    newGoal.match = new ClassLibrary1.Match();
+                 //    newGoal.match.id = result.id;
 
-                }
-            }
-            else
-                MessageBox.Show("Error - match");
-            // current footballer
-            newGoal.teamName = comboBox.SelectedItem.ToString();
-            newGoal.footballer = (ClassLibrary1.Footballer)comboBox1.SelectedItem;
+                 }
+             }
+             else
+                 MessageBox.Show("Error - match");
+             // current footballer
+             newGoal.teamName = comboBox.SelectedItem.ToString();
+             newGoal.footballer = (ClassLibrary1.Footballer)comboBox1.SelectedItem;*/
             //posting new goal
 
+            newGoal.time = textBoxTime.Text;
+            newGoal.teamName = selectedTeam.name;
+            newGoal.match = currentMatch;
+            newGoal.footballer =(ClassLibrary1.Footballer) comboBox1.SelectedItem;
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new System.Uri(@"http://localhost:8080/");
             var content = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(newGoal), Encoding.UTF8, "application/json");
-            response = client.PostAsync($"Liga/goals", content).Result;
+            HttpResponseMessage response = client.PostAsync($"Liga/goals", content).Result;
 
 
             if (response.IsSuccessStatusCode)
@@ -96,15 +106,8 @@ namespace WpfApplication1
 
         }
 
-        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (comboBox.SelectedItem != null)
-            {
-                this.selectedTeam = (ClassLibrary1.Team)comboBox.SelectedItem;
-                comboBox1.ItemsSource = selectedTeam.footballers;
+   
 
-            }
-
-        }
+      
     }
 }

@@ -78,7 +78,7 @@ namespace WpfApplication1
         private void buttonSeeGoals_Click(object sender, RoutedEventArgs e)
         {
             if(listBox.SelectedItem != null)
-            this.NavigationService.Navigate(new Goals(currentMatch));
+            this.NavigationService.Navigate(new Goals(currentMatch,selectedTeam));
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

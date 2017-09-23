@@ -85,7 +85,6 @@
     <Compile Include="Matches.xaml.cs">
       <DependentUpon>Matches.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RootObject.cs" />
     <Compile Include="Team.xaml.cs">
       <DependentUpon>Team.xaml</DependentUpon>
     </Compile>

@@ -14,8 +14,8 @@
         <Label x:Name="label_Copy" Content="Time:(hh-mm)" HorizontalAlignment="Left" Margin="18,88,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy1" Content="TeamName" HorizontalAlignment="Left" Margin="25,143,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy2" Content="Footballer" HorizontalAlignment="Left" Margin="25,196,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="128,147,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged"/>
         <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="128,200,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="128,147,0,0" TextWrapping="Wrap" Text="Team Name" VerticalAlignment="Top" Width="120" />
 
     </Grid>
 </Page>

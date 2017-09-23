@@ -21,20 +21,23 @@ namespace WpfApplication1
     /// </summary>
     public partial class Goals : Page
     {
-        ClassLibrary1.Match2 currentMatch;
-        ClassLibrary1.Goal currentGoal;
+        public ClassLibrary1.Match2 currentMatch;
+        public ClassLibrary1.Goal currentGoal;
+        public ClassLibrary1.Team selectedTeam;
         public Goals()
         {
             InitializeComponent();
         }
 
-        public Goals(ClassLibrary1.Match2 currentMatch)
+        public Goals(ClassLibrary1.Match2 currentMatch,ClassLibrary1.Team selectedTeam)
         {
             InitializeComponent();
             this.currentMatch = currentMatch;
+            this.selectedTeam = selectedTeam;
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new System.Uri(@"http://localhost:8080/");
+            /*
             HttpResponseMessage response = client.GetAsync($"Liga/goals/{currentMatch.goals}").Result;
             if (response.IsSuccessStatusCode)
             {
@@ -42,10 +45,10 @@ namespace WpfApplication1
 
             }
             else
-                MessageBox.Show("Error - couldn't load any goals");
+                MessageBox.Show("Error - couldn't load any goals"); */
 
         }
-        
+       
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -54,7 +57,7 @@ namespace WpfApplication1
 
         private void buttonAddg(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new AddGoal(currentMatch));
+            this.NavigationService.Navigate(new AddGoal(currentMatch,selectedTeam));
 
         }
 

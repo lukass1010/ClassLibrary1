@@ -8,7 +8,7 @@ namespace ClassLibrary1
         public string time;
         public string teamName;
         public Footballer footballer;
-        public Match match;
+        public Match2 match;
     //    public Team team;
 
         public override string ToString()
