@@ -43,7 +43,7 @@ namespace WpfApplication1
              HttpClient client = new HttpClient();
              client.BaseAddress = new System.Uri(@"http://localhost:8080/");
              HttpResponseMessage response = client.GetAsync($"Liga/matches/").Result;
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             if (response.IsSuccessStatusCode)
             {

@@ -37,15 +37,17 @@ namespace WpfApplication1
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new System.Uri(@"http://localhost:8080/");
-            /*
-            HttpResponseMessage response = client.GetAsync($"Liga/goals/{currentMatch.goals}").Result;
+            HttpResponseMessage response = client.GetAsync($"Liga/goals/").Result;
+
             if (response.IsSuccessStatusCode)
             {
-                listBox.ItemsSource = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ClassLibrary1.Team>>(response.Content.ReadAsStringAsync().Result);
+                List<ClassLibrary1.Goal> result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ClassLibrary1.Goal>>(response.Content.ReadAsStringAsync().Result);
 
+                listBox.ItemsSource = result.FindAll(i => i.teamName==selectedTeam.name);
+                
             }
             else
-                MessageBox.Show("Error - couldn't load any goals"); */
+                MessageBox.Show("Error - couldn't load any goals"); 
 
         }
        
@@ -63,7 +65,7 @@ namespace WpfApplication1
 
         private void buttonEditg(object sender, RoutedEventArgs e)
         {
-
+            this.NavigationService.Navigate(new EditGoal(currentGoal, selectedTeam));
         }
     }
 }
