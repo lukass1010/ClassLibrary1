@@ -6,8 +6,7 @@ namespace ClassLibrary1
     public class Match
     {
         public int id;
-        public string date;
-        public string time;
+        public DateTime date;
         public string city;
         public List<Goal> goals = new List<Goal>();
         public Team hostTeam;

@@ -62,8 +62,11 @@ namespace WpfApplication1
    
             {
 
-                newMatch.date = textBoxDate.Text;// DateTime.Parse(textBoxDate.Text);
-                newMatch.time = textBoxTime.Text;//  DateTime.Parse(textBoxTime.Text);
+                var time = TimeSpan.Parse(textBoxTime.Text);
+                var date = DateTime.Parse(textBoxDate.Text);
+                var datetime = (date + time);
+                newMatch.date = datetime;
+
                 newMatch.city = textBoxCity.Text;
                 
                 newMatch.hostTeam =(ClassLibrary1.Team) comboBox.SelectedItem;

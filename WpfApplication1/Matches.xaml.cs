@@ -78,7 +78,7 @@ namespace WpfApplication1
         private void buttonSeeGoals_Click(object sender, RoutedEventArgs e)
         {
             if(listBox.SelectedItem != null)
-            this.NavigationService.Navigate(new Goals(currentMatch,selectedTeam));
+                NavigationService.Navigate(new Goals(currentMatch,selectedTeam));
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -86,7 +86,7 @@ namespace WpfApplication1
             this.currentMatch = (ClassLibrary1.Match2)listBox.SelectedItem;
             if (currentMatch != null)
             {
-                textTime.Text = currentMatch.time.ToString();
+                textTime.Text = currentMatch.date.TimeOfDay.ToString();
                 textCity.Text = currentMatch.city.ToString();
                 textHome.Text = currentMatch.hostTeam.name.ToString();
                 textAway.Text = currentMatch.guestTeam.name.ToString();

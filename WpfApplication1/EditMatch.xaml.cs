@@ -37,8 +37,8 @@ namespace WpfApplication1
             InitializeComponent();
             if (currentMatch != null)
             {
-                textBoxDate.Text = currentMatch.date.ToString();
-                textBoxTime.Text = currentMatch.time.ToString();
+                textBoxDate.Text = currentMatch.date.Date.ToString().Split(' ').First();
+                textBoxTime.Text = currentMatch.date.TimeOfDay.ToString();
                 textBoxCity.Text = currentMatch.hostTeam.city.ToString();
                 comboBox.SelectedValue = currentMatch.hostTeam.name.ToString();
                 comboBox1.SelectedValue = currentMatch.guestTeam.name.ToString();
@@ -72,8 +72,10 @@ namespace WpfApplication1
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             updateMatch.city = textBoxCity.Text;
-            updateMatch.date = textBoxDate.Text;
-            updateMatch.time = textBoxTime.Text;
+            var time = TimeSpan.Parse(textBoxTime.Text);
+            var date = DateTime.Parse(textBoxDate.Text);
+            var datetime = (date + time);
+            updateMatch.date = datetime;
             updateMatch.hostTeam = (ClassLibrary1.Team)comboBox.SelectedItem; ;
             updateMatch.guestTeam = (ClassLibrary1.Team)comboBox1.SelectedItem;
 

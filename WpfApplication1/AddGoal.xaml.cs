@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -79,11 +80,20 @@ namespace WpfApplication1
              newGoal.teamName = comboBox.SelectedItem.ToString();
              newGoal.footballer = (ClassLibrary1.Footballer)comboBox1.SelectedItem;*/
             //posting new goal
-
-            newGoal.time = textBoxTime.Text;
+            var timeSpan = TimeSpan.Parse(textBoxTime.Text);
+            var emptyDate = DateTime.Now;
+            var time = emptyDate.Date + timeSpan;
+            newGoal.time = time;
+            //var time = new Time();
+            //var timeString = textBoxTime.Text.Split(':');
+            //time.hour = int.Parse(timeString.ElementAt(0));
+            //time.minute = int.Parse(timeString.ElementAt(1));
             newGoal.teamName = selectedTeam.name;
             newGoal.match = currentMatch;
             newGoal.footballer =(ClassLibrary1.Footballer) comboBox1.SelectedItem;
+
+            newGoal.match.goals = new List<object>();
+            newGoal.footballer.goals = null;
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new System.Uri(@"http://localhost:8080/");

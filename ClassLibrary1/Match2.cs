@@ -12,9 +12,7 @@ namespace ClassLibrary1
         [JsonProperty("id")]
         public int id { get; set; }
         [JsonProperty("date")]
-        public Date date { get; set; }
-        [JsonProperty("time")]
-        public Time time { get; set; }
+        public DateTime date { get; set; }
         [JsonProperty("city")]
         public string city { get; set; }
         [JsonProperty("goals")]

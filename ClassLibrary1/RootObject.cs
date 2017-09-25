@@ -15,35 +15,6 @@ namespace ClassLibrary1
         public string calendarType { get; set; }
     }
 
-    public class Date
-    {
-        public int year { get; set; }
-        public string month { get; set; }
-        public string era { get; set; }
-        public int dayOfMonth { get; set; }
-        public string dayOfWeek { get; set; }
-        public int dayOfYear { get; set; }
-        public bool leapYear { get; set; }
-        public int monthValue { get; set; }
-        public Chronology chronology { get; set; }
-        public override string ToString()
-        {
-            return year.ToString() + "-" + monthValue.ToString() + "-" + dayOfMonth.ToString() ;
-        }
-    }
-
-    public class Time
-    {
-        public int hour { get; set; }
-        public int minute { get; set; }
-        public int second { get; set; }
-        public int nano { get; set; }
-        public override string ToString()
-        {
-            return hour.ToString() + ":" + minute.ToString() ;
-        }
-    }
-
     public class Footballer1
     {
         public int id { get; set; }
@@ -92,6 +63,11 @@ namespace ClassLibrary1
         }
     }
 
+
+    public class GoalsResponse
+    {
+        public List<Goal> goals;
+    }
    
 
     public class RootObject

@@ -38,7 +38,7 @@ namespace WpfApplication1
                 this.selectedTeam = selectedTeam;
                 comboBox1.ItemsSource = selectedTeam.footballers;
 
-                textBoxTime.Text = editGoal.time.ToString();
+                textBoxTime.Text = editGoal.time.TimeOfDay.ToString();
                 textBoxCity.Text = editGoal.teamName.ToString();
 
            
@@ -54,9 +54,13 @@ namespace WpfApplication1
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-
-            editGoal.time = textBoxTime.Text;
+            var timeSpan = TimeSpan.Parse(textBoxTime.Text);
+            var emptyDate = DateTime.Now;
+            var datetime = (emptyDate.Date + timeSpan);
+            editGoal.time = datetime;
             editGoal.footballer = (ClassLibrary1.Footballer)comboBox1.SelectedItem;
+            editGoal.match.goals = new List<object>();
+            editGoal.footballer.goals = null;
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new System.Uri(@"http://localhost:8080/");
